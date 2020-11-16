@@ -15,4 +15,13 @@
 
 const selectedById = document.querySelector('#categories');
 
-console.log(selectedById);
+// console.log(selectedById);
+
+const menuItemsByTagName = document.querySelectorAll("li");
+// console.log(menuItemsByTagName);
+
+const elements = document.querySelectorAll('.item')
+elements.forEach(function(element) {
+    console.log(`Категория: ${element.firstElementChild.textContent}`)
+    console.log(`Количество элементов: ${element.lastElementChild.children.length}`)
+})
