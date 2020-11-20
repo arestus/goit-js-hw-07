@@ -6,24 +6,33 @@
 // Создай функции increment и decrement для увеличения и уменьшения значения счетчика
 // Добавь слушатели кликов на кнопки, вызовы функций и обновление интерфейса
 
-const button = {
-  sub: document.querySelector("[data-action='increment']"),
-  add: document.querySelector("[data-action='decrement']"),
-  span: document.querySelector("#value"),
-};
+let counterValue = 0;
 
-const counterValue = 0;
-const increment = () => {
+const btnIncrement = document.querySelector('button[data-action="increment"]');
+const btnDecrement = document.querySelector('button[data-action="decrement"]');
+const spanValue = document.querySelector('span#value');
+
+btnIncrement.addEventListener('click', onBtnIncremetClick);
+btnDecrement.addEventListener('click', onBtnDecrementClick);
+
+function updateViewCounter() {
+  spanValue.innerHTML = counterValue;
+}
+
+function increment() {
   counterValue += 1;
+}
 
- button.span.textContent = counterValue;
-};
+function onBtnIncremetClick() {
+  increment();
+  updateViewCounter();
+}
 
-const decrement = () => {
+function decrement() {
   counterValue -= 1;
+}
 
-  button.span.textContent = counterValue;
-};
-
-button.sub.addEventListener("click", increment);
-button.add.addEventListener("click", decrement);
+function onBtnDecrementClick() {
+  decrement();
+  updateViewCounter();
+}
