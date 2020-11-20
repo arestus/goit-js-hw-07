@@ -25,19 +25,20 @@
 
 const inputVal = document.getElementById("validation-input");
 
-const totalLenght = inputVal.getAttribute("data-length");
-const intTotallenght = parseInt(totalLenght, 10);
+inputVal.addEventListener('blur', onInputBlur);
 
-inputVal.oninput = function() {
-  if (inputVal.value.length === intTotallenght) {
-    inputVal.classList.remove("invalid");
-    inputVal.classList.add("valid");
+function onInputBlur(event) {
+  const lengthString = Number(event.currentTarget.getAttribute('data-length'));
+  //event.currentTarget.dataset.length;
+
+  event.currentTarget.classList.remove('valid');
+  event.currentTarget.classList.remove('invalid');
+
+  if (event.currentTarget.value) {
+    if (lengthString === event.currentTarget.value.length) {
+      event.currentTarget.classList.add('valid');
+    } else {
+      event.currentTarget.classList.add('invalid');
+    }
   }
-  if (inputVal.value.length === 0) {
-    inputVal.classList.remove("valid");
-    inputVal.classList.remove("invalid");
-  }
-  if (inputVal.value.length !== intTotallenght && inputVal.value.length !== 0) {
-    inputVal.classList.add("invalid");
-  }
-};
+}
