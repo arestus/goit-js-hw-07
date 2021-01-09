@@ -11,21 +11,23 @@
 Категория: Животные
 Количество элементов: 4*/
 
-"use strict"
+'use strict';
 
 // const selectedById = document.querySelector('#categories');
 
 // console.log(selectedById);
 
-// const menuItemsByTagName = document.querySelectorAll("li");
+// const menuItemsByTagName = document.querySelectorAll('li');
 // console.log(menuItemsByTagName);
 
 const liCategories = document.querySelectorAll('li.item');
 
 console.log(`В списке ${liCategories.length} категории.`);
 
-const elements = document.querySelectorAll('.item')
-elements.forEach(function(element) {
-    console.log(`Категория: ${element.firstElementChild.textContent}`)
-    console.log(`Количество элементов: ${element.lastElementChild.children.length}`)
-})
+const elements = document.querySelectorAll('.item');
+elements.forEach(function (element) {
+  console.log(`Категория: ${element.firstElementChild.textContent}`);
+  console.log(
+    `Количество элементов: ${element.lastElementChild.children.length}`,
+  );
+});
